@@ -14,9 +14,4 @@
     <ProjectReference Include="..\CRUDSales.Entity\CRUDSales.Entity.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>
