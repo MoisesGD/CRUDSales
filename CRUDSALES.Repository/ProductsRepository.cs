@@ -1,4 +1,5 @@
 ﻿using CRUDSales.Entity.Models;
+using CRUDSALES.Interfaces.Context;
 using CRUDSALES.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,7 +12,7 @@ namespace CRUDSALES.Repository
 {
 	public class ProductsRepository : PostestRepository<Product>, IProductsRepository
 	{
-		public ProductsRepository(PostestContext context) : base(context)
+		public ProductsRepository(IPostestContext context) : base(context)
 		{
 		}
 		public async Task<Product> AddProducts(Product product)

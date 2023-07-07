@@ -1,4 +1,5 @@
 ﻿using CRUDSales.Entity.Models;
+using CRUDSALES.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace CRUDSALES.Interfaces.Services
 {
 	public interface IProductsService
 	{
-		Task<Product> AddProducts(Product product);
+		Task<Product> AddProducts(ProductForm productForm);
 		Task<List<Product>> GetProducts();
 		Task<Product> GetProduct(int productId);
 	}

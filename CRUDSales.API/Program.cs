@@ -1,3 +1,4 @@
+
 using CRUDSALES.Interfaces.Context;
 using CRUDSALES.Interfaces.Repositories;
 using CRUDSALES.Interfaces.Services;
@@ -15,8 +16,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(PostestRepository<>));
-builder.Services.AddScoped<IPostestContext, PostestContext>();
-builder.Services.AddScoped<DbContext, PostestContext>();
+builder.Services.AddScoped<IPostestContext, POSTestContext>();
+builder.Services.AddScoped<DbContext, POSTestContext>();
 
 builder.Services.AddScoped<IClientsService, ClientsService>();
 builder.Services.AddScoped<IClientsRepository, ClientsRepository>();

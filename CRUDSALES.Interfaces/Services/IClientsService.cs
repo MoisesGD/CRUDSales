@@ -1,4 +1,5 @@
 ﻿using CRUDSales.Entity.Models;
+using CRUDSALES.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace CRUDSALES.Interfaces.Services
 {
 	public interface IClientsService
 	{
-		Task<Customer> AddCurstomer(Customer customer);
+		Task<Customer> AddCurstomer(CustomerForm customerForm);
 		Task<List<Customer>> GetCustomers();
 		Task<Customer> GetCustomer(int customerId);
 

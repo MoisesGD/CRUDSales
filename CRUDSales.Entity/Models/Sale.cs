@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CRUDSales.Entity.Models;
-
-public partial class Sale
+namespace CRUDSales.Entity.Models
 {
-    public int SaleId { get; set; }
+    public partial class Sale
+    {
+        public Sale()
+        {
+            Concepts = new HashSet<Concept>();
+        }
 
-    public DateTime Date { get; set; }
+        public int SaleId { get; set; }
+        public DateTime Date { get; set; }
+        public int CustomerId { get; set; }
+        public decimal Total { get; set; }
+        public bool? Active { get; set; }
 
-    public int CustomerId { get; set; }
-
-    public decimal Total { get; set; }
-
-    public virtual ICollection<Concept> Concepts { get; set; } = new List<Concept>();
-
-    public virtual Customer Customer { get; set; } = null!;
+        public virtual Customer Customer { get; set; } = null!;
+        public virtual ICollection<Concept> Concepts { get; set; }
+    }
 }

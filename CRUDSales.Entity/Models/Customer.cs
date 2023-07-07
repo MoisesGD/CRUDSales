@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CRUDSales.Entity.Models;
-
-public partial class Customer
+namespace CRUDSales.Entity.Models
 {
-    public int CustomerId { get; set; }
+    public partial class Customer
+    {
+        public Customer()
+        {
+            Sales = new HashSet<Sale>();
+        }
 
-    public byte[] Name { get; set; } = null!;
+        public int CustomerId { get; set; }
+        public string? Name { get; set; }
 
-    public virtual ICollection<Sale> Sales { get; set; } = new List<Sale>();
+        public virtual ICollection<Sale> Sales { get; set; }
+    }
 }
