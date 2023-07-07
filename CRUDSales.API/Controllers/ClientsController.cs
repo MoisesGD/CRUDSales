@@ -1,4 +1,5 @@
 ﻿using CRUDSales.Entity.Models;
+using CRUDSALES.DTO;
 using CRUDSALES.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +32,7 @@ namespace CRUDSales.API.Controllers
 
 		}
 		[HttpPost]
-		public async Task<IActionResult> Post(Customer curstomer)
+		public async Task<IActionResult> Post(CustomerForm curstomer)
 		{
 			return Ok(await _clientsService.AddCurstomer(curstomer));
 

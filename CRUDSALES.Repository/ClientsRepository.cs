@@ -1,4 +1,5 @@
 ﻿using CRUDSales.Entity.Models;
+using CRUDSALES.Interfaces.Context;
 using CRUDSALES.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,7 +12,7 @@ namespace CRUDSALES.Repository
 {
 	public class ClientsRepository: PostestRepository<Customer> , IClientsRepository
 	{
-		public ClientsRepository(PostestContext context) : base(context)
+		public ClientsRepository(IPostestContext context) : base(context)
 		{
 		}
 		public async Task<Customer> AddCurstomer(Customer customer)

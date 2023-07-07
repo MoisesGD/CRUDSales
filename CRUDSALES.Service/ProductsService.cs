@@ -1,4 +1,5 @@
 ﻿using CRUDSales.Entity.Models;
+using CRUDSALES.DTO;
 using CRUDSALES.Interfaces.Repositories;
 using CRUDSALES.Interfaces.Services;
 using System;
@@ -16,8 +17,13 @@ namespace CRUDSALES.Service
 		{
 			_productsRepository= productsRepository;
 		}
-		public async Task<Product> AddProducts(Product product)
+		public async Task<Product> AddProducts(ProductForm productForm)
 		{
+			var product = new Product();
+			product.Name = productForm.Name;
+			product.UnitPrice = productForm.UnitPrice;
+			product.Cost = productForm.Cost;
+
 			return await _productsRepository.AddProducts(product);
 		}
 

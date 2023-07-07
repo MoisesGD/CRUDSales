@@ -1,4 +1,5 @@
 ﻿using CRUDSales.Entity.Models;
+using CRUDSALES.DTO;
 using CRUDSALES.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -31,9 +32,9 @@ namespace CRUDSales.API.Controllers
 
 		}
 		[HttpPost]
-		public async Task<IActionResult> Post(Product product)
+		public async Task<IActionResult> Post(ProductForm productForm)
 		{
-			return Ok(await _productsService.AddProducts(product));
+			return Ok(await _productsService.AddProducts(productForm));
 
 
 		}

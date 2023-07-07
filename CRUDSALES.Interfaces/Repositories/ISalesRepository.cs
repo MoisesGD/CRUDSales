@@ -1,4 +1,5 @@
 ﻿using CRUDSales.Entity.Models;
+using CRUDSALES.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace CRUDSALES.Interfaces.Repositories
 	{
 		Task<Sale> AddSale(Sale sale);
 		Task<List<Sale>> GetSales(DateTime startTime, DateTime endTime);
+		Task<Sale> CancellSale(int saleId);
 	}
 }

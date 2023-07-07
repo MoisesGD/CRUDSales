@@ -1,4 +1,5 @@
 ﻿using CRUDSales.Entity.Models;
+using CRUDSALES.DTO;
 using CRUDSALES.Interfaces.Repositories;
 using CRUDSALES.Interfaces.Services;
 using System;
@@ -16,8 +17,10 @@ namespace CRUDSALES.Service
 		{ 
 			_clientsRepository= clientsRepository;
 		}
-		public async Task<Customer> AddCurstomer(Customer customer)
+		public async Task<Customer> AddCurstomer(CustomerForm customerForm)
 		{
+			var customer = new Customer();
+			customer.Name = customerForm.Name;
 			return await _clientsRepository.AddCurstomer(customer);
 		}
 

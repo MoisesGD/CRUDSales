@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.8">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.19" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.19" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.19">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CRUDSales.Entity\CRUDSales.Entity.csproj" />
-    <ProjectReference Include="..\CRUDSALES.Interfaces\CRUDSALES.Interfaces.csproj" />
+    <ProjectReference Include="..\CRUDSALES.DTO\CRUDSALES.DTO.csproj" />
+    <ProjectReference Include="..\CRUDSALES.Repository\CRUDSALES.Repository.csproj" />
     <ProjectReference Include="..\CRUDSALES.Service\CRUDSALES.Service.csproj" />
   </ItemGroup>
 

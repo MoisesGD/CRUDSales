@@ -1,4 +1,5 @@
 ﻿using CRUDSales.Entity.Models;
+using CRUDSALES.Interfaces.Context;
 using CRUDSALES.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,7 +12,7 @@ namespace CRUDSALES.Repository
 {
 	public class SalesRepository : PostestRepository<Sale>, ISalesRepository
 	{
-		public SalesRepository(PostestContext context) : base(context)
+		public SalesRepository(IPostestContext context) : base(context)
 		{
 		}
 		public async Task<Sale> AddSale(Sale sale)
@@ -21,11 +22,23 @@ namespace CRUDSALES.Repository
 			return sale;
 		}
 
-		
-		public Task<List<Sale>> GetSales(DateTime startTime, DateTime endTime)
+
+		public async Task<List<Sale>> GetSales(DateTime startTime, DateTime endTime)
 		{
-			return Context.Sales.Include(c => c.Customer).Include(c => c.Concepts).ThenInclude(p =>p.Product)
+			return await Context.Sales.Include(c => c.Customer).Include(c => c.Concepts).ThenInclude(p => p.Product)
 				.Where(d => d.Date >= startTime && d.Date <= endTime).ToListAsync();
+		}
+		public async Task<Sale> GetSale(int saleId)
+		{
+			return await Context.Sales.FirstOrDefaultAsync(f => f.SaleId.Equals(saleId));
+		}
+		public async Task<Sale> CancellSale(int saleId)
+		{
+			var sale = await GetSale(saleId);
+
+			sale.Active =false;
+			await Context.SaveChangesAsync(default);
+			return sale;
 		}
 	}
 }
